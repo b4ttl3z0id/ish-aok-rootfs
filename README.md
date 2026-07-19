@@ -8,13 +8,19 @@ merges it with the small set of filesystems shipped inside the IPA itself.
 This repo exists so anyone can propose a new rootfs without touching the
 iSH-AOK application source.
 
+The `rootfs-assets` [release](https://github.com/emkey1/ish-AOK-rootfs/releases/tag/rootfs-assets)
+on this repo hosts the archives for every `"tier": "official"` entry (and
+some community ones), but a `downloadURL` doesn't have to point here —
+manifest entries are free to reference an archive hosted anywhere stable.
+
 ## Contributing a new rootfs
 
 1. Build (or otherwise obtain) a `.tar.xz` (preferred; `.tar.gz`/`.tar.zst`/`.tar.bz2` also work)
    root filesystem archive for a Linux guest architecture iSH-AOK supports:
    `i386`, `amd64` (x86_64), `arm64` (aarch64), or `riscv64`.
 2. Host the archive somewhere stable and directly downloadable over HTTPS
-   (a GitHub Release asset on your own fork/repo is the easiest option —
+   (a GitHub Release asset on your own fork/repo is the easiest option since
+   this repo's `rootfs-assets` release isn't open for outside uploads —
    avoid links that require auth, redirect through an HTML landing page, or
    expire).
 3. Add an entry to `manifest.json` (see schema below) and open a pull
