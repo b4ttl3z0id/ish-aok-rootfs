@@ -8,21 +8,26 @@ merges it with the small set of filesystems shipped inside the IPA itself.
 This repo exists so anyone can propose a new rootfs without touching the
 iSH-AOK application source.
 
-The `rootfs-assets` [release](https://github.com/emkey1/ish-AOK-rootfs/releases/tag/rootfs-assets)
-on this repo hosts the archives for every `"tier": "official"` entry (and
-some community ones), but a `downloadURL` doesn't have to point here —
-manifest entries are free to reference an archive hosted anywhere stable.
+The `archives/` directory in this repo holds the archive for every
+`"tier": "official"` entry (and some community ones), served via
+`raw.githubusercontent.com`. A `downloadURL` doesn't have to point here,
+though — manifest entries are free to reference an archive hosted anywhere
+stable.
+
+(The original copies of these archives also remain attached to
+[ish-AOK's `rootfs-assets` release](https://github.com/emkey1/ish-AOK/releases/tag/rootfs-assets)
+for backwards compatibility with anything still linking there directly.)
 
 ## Contributing a new rootfs
 
 1. Build (or otherwise obtain) a `.tar.xz` (preferred; `.tar.gz`/`.tar.zst`/`.tar.bz2` also work)
    root filesystem archive for a Linux guest architecture iSH-AOK supports:
    `i386`, `amd64` (x86_64), `arm64` (aarch64), or `riscv64`.
-2. Host the archive somewhere stable and directly downloadable over HTTPS
-   (a GitHub Release asset on your own fork/repo is the easiest option since
-   this repo's `rootfs-assets` release isn't open for outside uploads —
-   avoid links that require auth, redirect through an HTML landing page, or
-   expire).
+2. Either open a PR adding your archive under `archives/` directly (keep it
+   under 100 MB — GitHub's hard per-file limit for a plain `git push`), or
+   host it yourself somewhere stable and directly downloadable over HTTPS
+   (avoid links that require auth, redirect through an HTML interstitial,
+   or expire) and just reference that URL.
 3. Add an entry to `manifest.json` (see schema below) and open a pull
    request. Set `"tier": "community"` — only iSH-AOK maintainers promote
    entries to `"official"`, which implies the image is covered by the
