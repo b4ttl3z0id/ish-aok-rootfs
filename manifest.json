@@ -119,7 +119,7 @@
   {
     "identifer": "artixlinuxaarch64",
     "displayName": "Artix Linux OpenRC ARM (aarch64) (Experimental)",
-    "archiveName": "artix-minirootfs-openrc-aarch64.tar.xz",
+    "archiveName": "artix-minirootfs-openrc-aarch64",
     "importName": "ArtixLinux-OpenRC-ARM-aarch64",
     "initialWindow": "session-shell",
     "guestABI": "arm64",
