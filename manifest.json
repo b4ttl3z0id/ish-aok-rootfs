@@ -124,7 +124,7 @@
     "initialWindow": "session-shell",
     "guestABI": "arm64",
     "downloadUrl": "https://raw.githubusercontent.com/b4ttl3z0id/ish-AOK-rootfs/main/archives/artix-minirootfs-openrc-aarch64.tar.xz",
-    "downloadSize": "~90 MB",
+    "downloadSize": "~92 MB",
     "family": "artixlinux",
     "familyDisplayName": "Artix Linux (Experimental)",
     "tier": "community"
